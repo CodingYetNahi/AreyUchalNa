@@ -1,0 +1,1 @@
+import{expect,it}from'vitest';import{loadLists}from'./storage';it('handles malformed localStorage safely',()=>expect(loadLists({getItem:()=>'{bad'})).toEqual({lists:[],error:'Saved lists could not be read. Your current choices are still safe.'}));it('handles unavailable storage safely',()=>expect(loadLists({getItem:()=>{throw new Error()}}).lists).toEqual([]));
