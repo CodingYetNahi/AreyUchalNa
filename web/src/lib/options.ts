@@ -1,0 +1,3 @@
+export const normaliseOptions=(items:readonly string[]):string[]=>items.map(x=>x.trim()).filter(Boolean);
+export const duplicateOptions=(items:readonly string[]):string[]=>{const seen=new Set<string>(),duplicates=new Set<string>();normaliseOptions(items).forEach(x=>{const key=x.toLocaleLowerCase();if(seen.has(key))duplicates.add(x);seen.add(key)});return [...duplicates]};
+export function validateOptions(items:readonly string[]):string[]{const clean=normaliseOptions(items),errors:string[]=[];if(clean.length<2)errors.push('Add at least two choices.');const duplicates=duplicateOptions(clean);if(duplicates.length)errors.push(`Remove duplicate choices: ${duplicates.join(', ')}.`);return errors;}

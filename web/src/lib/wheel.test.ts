@@ -1,0 +1,1 @@
+import{expect,it}from'vitest';import{indexAtPointer,winningRotation}from'./wheel';it('lands the wheel on the result selected by logic',()=>{for(let count=2;count<12;count++)for(let selected=0;selected<count;selected++)expect(indexAtPointer(winningRotation(selected,count,37),count)).toBe(selected)});

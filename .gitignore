@@ -4,3 +4,9 @@ __pycache__/
 build/
 dist/
 .venv/
+
+# Web tooling and generated output
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+web/node_modules/.tmp/
