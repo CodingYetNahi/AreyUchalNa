@@ -29,7 +29,7 @@ export function randomInclusive(min:number,max:number,source?:RandomSource):numb
 export interface Team {name:string;members:string[]}
 export function generateTeams(people:readonly string[],names:readonly string[],source?:RandomSource):Team[]{
   if(names.length<2) throw new RangeError('At least two teams are required.');
-  const teams=names.map((name)=>({name,members:[]}));
+  const teams:Team[]=names.map((name)=>({name,members:[]}));
   shuffle(people,source).forEach((person,index)=>teams[index%teams.length]!.members.push(person));
   return teams;
 }
